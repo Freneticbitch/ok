@@ -1,7 +1,7 @@
 HOME_DIR != getent passwd $(SUDO_USER) | cut -d: -f6;
 
 all:
-	mkdir -p ${HOME_DIR}/data/alemafe_nginx
+	mkdir -p ${HOME_DIR}/data/fforlini_nginx
 	mkdir -p ${HOME_DIR}/data/db
 	docker compose -f srcs/docker-compose.yml build 
 	docker compose -f srcs/docker-compose.yml up -d
@@ -18,6 +18,8 @@ install:
 	tee /etc/apt/sources.list.d/docker.list > /dev/null
 	apt update -y
 	apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+	sh -c -e "echo '127.0.0.1 fforlini.42.fr' >> /etc/hosts";
+	sh -c -e "echo '127.0.0.1 www.fforlini.42.fr' >> /etc/hosts";
 
 clean:
 	docker compose -f srcs/docker-compose.yml down

@@ -12,7 +12,7 @@ services:
             - mynetwork
         restart: always
         volumes:
-            - "alemafe_nginx:/var/www/html"
+            - "fforlini_nginx:/var/www/html"
         container_name: nginx
         
     wordpress:
@@ -27,7 +27,7 @@ services:
         env_file:
             - .env
         volumes:
-            - "alemafe_nginx:/var/www/html"
+            - "fforlini_nginx:/var/www/html"
         container_name: wordpress
         
     mariadb:
@@ -56,7 +56,7 @@ services:
         networks:
             - mynetwork
         volumes:
-            - "alemafe_nginx:/var/www/html"
+            - "fforlini_nginx:/var/www/html"
         container_name: adminer
     
     ftp:
@@ -71,7 +71,7 @@ services:
         restart: always
         container_name: ftp
         volumes:
-            - "alemafe_nginx:/ftp"
+            - "fforlini_nginx:/ftp"
         ports:
             - "21:21"
             - "21100-21110:21100-21110"
@@ -82,7 +82,7 @@ services:
         networks:
             - mynetwork
         volumes:
-            - "alemafe_nginx:/var/www/html"
+            - "fforlini_nginx:/var/www/html"
         restart: always
         container_name: redis
 
@@ -115,12 +115,12 @@ networks:
   mynetwork:
 
 volumes:
-    alemafe_nginx: 
+    fforlini_nginx: 
         driver: local
         driver_opts:
             type: none
             o: bind
-            device: /home/${SUDO_USER}/data/alemafe_nginx
+            device: /home/${SUDO_USER}/data/fforlini_nginx
     db:
         driver: local
         driver_opts:

@@ -1,5 +1,5 @@
-#baseURL = "https://alemafe.42.fr/static"
-title = "Alemafe's Site"
+#baseURL = "https://fforlini.42.fr/static"
+title = "fforlini's Site"
 theme = "m10c"
 paginate = 8
 canonifyURLs = true
